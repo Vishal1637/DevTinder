@@ -9,5 +9,10 @@
     "NODE_ENV": "production",
     "JWT_SECRET": "DEV@Tinder$790",
     "MONGODB_URI": "mongodb+srv://vishalverma3441_db_user:QhY7502SKLOlqvLk@cluster0.fjbhzjd.mongodb.net/devTinder"
+  },
+  "functions": {
+    "app.js": {
+      "maxDuration": 30
+    }
   }
 }
