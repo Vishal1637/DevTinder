@@ -11,8 +11,14 @@ const connectdb = require("./config/database");
 const app = express();
 
 app.use(cors({ 
-    origin: 'https://devtinder-frontend-k9vaogdux-devlopertinders-projects.vercel.app', 
-    credentials: true 
+    origin: [
+        'https://devtinder-frontend-k9vaogdux-devlopertinders-projects.vercel.app',
+        'http://localhost:5173',
+        'http://localhost:3000'
+    ], 
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
 }));
 
 // JSON parsing with error handling
