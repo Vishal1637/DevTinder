@@ -56,14 +56,21 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3001;
 
+// Connect to database
 connectdb()
     .then(() => {
         console.log("Database connection is successful");
-        app.listen(PORT, () => {
-            console.log(`🚀 Server is successfully started at http://localhost:${PORT}`);
-        });
     })
     .catch((err) => {
         console.error("Can't connect to the database", err);
-        process.exit(1);
     });
+
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`🚀 Server is successfully started at http://localhost:${PORT}`);
+    });
+}
+
+// Export for Vercel
+module.exports = app;
